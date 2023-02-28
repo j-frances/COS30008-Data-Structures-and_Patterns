@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-#include "Particle2D.h"
+#include "Particle2D.cpp"
+#include "Vector2D.cpp"
 
 int main()
 {
