@@ -55,5 +55,5 @@ size_t DataWrapper::size() const noexcept
 const DataMap &DataWrapper::operator[](size_t aIndex) const
 {
     assert( aIndex < fSize );
-    return *(reinterpret_cast<const float*>(this) + aIndex);
+    return fData[aIndex];
 }
