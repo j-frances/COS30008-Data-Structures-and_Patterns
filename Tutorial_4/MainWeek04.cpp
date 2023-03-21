@@ -32,72 +32,72 @@ void testMap()
 #include "DataWrapper.h"
 #include "DataWrapper.cpp"
 
-// bool testDataWrapper1( DataWrapper& aWrapper, const std::string& aFileName )
-// {
-//     if ( !aWrapper.load( aFileName ) )
-//     {
-//         std::cerr << "Cannot load data file " << aFileName << std::endl;
+bool testDataWrapper1( DataWrapper& aWrapper, const std::string& aFileName )
+{
+    if ( !aWrapper.load( aFileName ) )
+    {
+        std::cerr << "Cannot load data file " << aFileName << std::endl;
         
-//         return false;
-//     }
+        return false;
+    }
     
-//     std::cout << "Data loaded." << std::endl;
+    std::cout << "Data loaded." << std::endl;
     
-//     return true;
-// }
+    return true;
+}
 
-// void basicIndexer( const DataWrapper& aWrapper )
-// {
-//     std::cout << "Using basic indexer: " << std::endl;
+void basicIndexer( const DataWrapper& aWrapper )
+{
+    std::cout << "Using basic indexer: " << std::endl;
     
-//     for ( size_t i = 0; i < aWrapper.size(); i++ )
-//     {
-//         std::cout << static_cast<char>(aWrapper[i]);
-//     }
+    for ( size_t i = 0; i < aWrapper.size(); i++ )
+    {       
+        std::cout << "[" << i << "]" << static_cast<char>(aWrapper[i]) << std::endl;
+    }
 
-//     std::cout << std::endl;
-// }
+    std::cout << std::endl;
+}
 
-// void lambdaIndexer( const DataWrapper& aWrapper )
-// {
-//     std::cout << "Using lambda with ordered mapping logic: " << std::endl;
+/* void lambdaIndexer( const DataWrapper& aWrapper )
+{
+    std::cout << "Using lambda with ordered mapping logic: " << std::endl;
     
-//     auto lOrderedMapper = [&aWrapper] (size_t aIndex) -> char
-//     {
+    auto lOrderedMapper = [&aWrapper] (size_t aIndex) -> char
+    {
 		
-// 		// Problem 3
+		// Problem 3
 		
-//     };
+    };
     
-//     for ( size_t i = 0; i < aWrapper.size(); i++ )
-//     {
-//         std::cout << lOrderedMapper( i );;
-//     }
+    for ( size_t i = 0; i < aWrapper.size(); i++ )
+    {
+        std::cout << lOrderedMapper( i );;
+    }
 
-//     std::cout << std::endl;
-// }
+    std::cout << std::endl;
+} */
 
 int main( int argc, char* argv[] )
 {
     testMap();
 
-    // if ( argc != 2 )
-    // {
-    //     std::cerr << "Arguments missing." << std::endl;
-    //     std::cerr << "Usage: Lab04 <filename>" << std::endl;
+    if ( argc != 2 )
+    {
+        std::cerr << "Arguments missing." << std::endl;
+        std::cerr << "Usage: Lab04 <filename>" << std::endl;
         
-    //     return 1;
-    // }
+        return 1;
+    }
     
-    // DataWrapper lWrapper;
+    DataWrapper lWrapper;
     
-    // if ( testDataWrapper1( lWrapper, argv[1] ) )
-    // {
-    //     basicIndexer( lWrapper );        
-    //     lambdaIndexer( lWrapper );
+    if ( testDataWrapper1( lWrapper, argv[1] ) )
+    {
+        basicIndexer( lWrapper );        
+        // lambdaIndexer( lWrapper );
         
-    //     return 0;
-    // }
+        return 0;
+    }
 
-    // return 2;
+    return 2;
 }
