@@ -10,13 +10,12 @@ DataWrapper::DataWrapper() :
 
 DataWrapper::~DataWrapper()
 {
-    delete[] this;
+    delete[] fData;
 }
 
 bool DataWrapper::load(const std::string &aFileName)
 {
     std::string inputData, firstNumber, secondNumber;
-    using DataMap = Map<size_t, size_t>;
     
     try
     {
@@ -24,7 +23,7 @@ bool DataWrapper::load(const std::string &aFileName)
         getline(DataFile, inputData);
         fSize = stoi(inputData);
 
-        DataMap* fData = new DataMap[fSize];
+        fData = new DataMap[fSize];
 
         for(int i = 0; i < fSize; i++){
 
